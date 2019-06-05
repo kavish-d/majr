@@ -49,15 +49,13 @@ if REDIS_URL:
     CACHE_URL = os.environ.setdefault('CACHE_URL', REDIS_URL)
 CACHES = {'default': django_cache_url.config()}
 
-# DATABASES = {
+DATABASES = {
 
-#     'default':  dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
+    'default':  dj_database_url.config(
+        os.environ.get('DATABASE_URL')
+    )
 
-# }
-
-DATABASES['default'] =  dj_database_url.config()
+}
 
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en'
