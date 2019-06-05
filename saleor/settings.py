@@ -510,6 +510,6 @@ if SENTRY_DSN:
         'release': __version__}
     
     
- import dj_database_url
+import dj_database_url
 
 DATABASES['default'] = dj_database_url.config()
