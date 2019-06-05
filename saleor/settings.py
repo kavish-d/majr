@@ -51,21 +51,9 @@ CACHES = {'default': django_cache_url.config()}
 
 DATABASES = {
 
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'saleor',
-
-        'USER': 'postgres',
-
-        'PASSWORD' : 'ankit',
-
-        'HOST' : 'localhost',
-
-        'PORT' : '5432'
-
-    }
+    'default':  dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 
 }
 
