@@ -4,6 +4,8 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+dj-database-url
+python-decouple
 amqp==2.2.2               # via kombu
 asn1crypto==0.24.0        # via cryptography
 attrs==17.4.0             # via pytest
