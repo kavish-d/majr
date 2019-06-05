@@ -41,7 +41,7 @@
     }
   },
   "scripts": {
-    "postdeploy": "python manage.py migrate && python manage.py populatedb --createsuperuser --withoutimages"
+    "postdeploy": "python manage.py migrate && python manage.py populatedb --createsuperuser --withoutimages && echo 'from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'password')' "
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
