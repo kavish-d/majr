@@ -26,7 +26,7 @@ def get_bool_from_env(name, default_value):
     return default_value
 
 
-DEBUG = get_bool_from_env('DEBUG', True)
+DEBUG = get_bool_from_env('DEBUG', False)
 
 SITE_ID = 1
 
@@ -50,11 +50,9 @@ if REDIS_URL:
 CACHES = {'default': django_cache_url.config()}
 
 DATABASES = {
-
-    'default':  dj_database_url.config(
-        os.environ.get('DATABASE_URL')
-    )
-
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+    }
 }
 
 TIME_ZONE = 'America/Chicago'
@@ -510,3 +508,8 @@ if SENTRY_DSN:
     RAVEN_CONFIG = {
         'dsn': SENTRY_DSN,
         'release': __version__}
+    
+    
+ import dj_database_url
+
+DATABASES['default'] = dj_database_url.config()
